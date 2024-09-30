@@ -31,7 +31,7 @@ ui <- fluidPage(
                         max = 5,
                         value = 2),
             checkboxInput("showLinks", "Show links"),
-            checkboxInput("showGC", "Show GC content"),
+            #checkboxInput("showGC", "Show GC content"),
             checkboxInput("showGeneLabels", "Show gene labels"),
         ),
 
@@ -62,7 +62,7 @@ server <- function(input, output) {
       p <- p + geom_feat(data=feats(ngaros), alpha=.3, size=10, position="identity") +
         geom_feat_note(aes(label="Ngaro-transposon"), data=feats(ngaros),
                        nudge_y=.1, vjust=0)
-      if(input$showGC){
+      if(FALSE){#input$showGC){
         p <- p + 
           geom_wiggle(aes(z=score, linetype="GC-content"), feats(gc),
                      fill="lavenderblush4", position=position_nudge(y=-.2), height = .2)
